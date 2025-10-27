@@ -33,4 +33,11 @@ public class Cars {
         }
         return cars;
     }
+
+    public Cars move(MovingStrategy movingStrategy) {
+        List<Car> newCars = this.cars.stream()
+                .map(car -> car.move(movingStrategy))
+                .collect(Collectors.toList());
+        return new Cars(newCars);
+    }
 }
