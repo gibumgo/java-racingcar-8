@@ -61,6 +61,17 @@ public class Cars {
         return new Cars(newCars);
     }
 
+    public Winners findWinner() {
+        return winners(maxPosition());
+    }
+
+    private Winners winners(Position maxPosition) {
+        List<Car> winnerList = cars.stream()
+                .filter(car -> car.isWinner(maxPosition))
+                .toList();
+        return new Winners(winnerList);
+    }
+
     private Position maxPosition() {
         Position maxPosition = Position.create();
         for (Car car : cars) {

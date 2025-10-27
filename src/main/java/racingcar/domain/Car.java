@@ -40,6 +40,10 @@ public class Car {
         return this.position.max(otherPosition);
     }
 
+    public boolean isWinner(Position maxPosition) {
+        return this.position.equals(maxPosition);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
