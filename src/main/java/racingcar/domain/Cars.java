@@ -63,7 +63,7 @@ public class Cars {
 
     private List<Car> winners(Position maxPosition) {
         Winners winners = new Winners();
-        return winners.addWinners(this.cars,maxPosition);
+        return winners.addWinners(this.cars, maxPosition);
     }
 
     private Position maxPosition() {
