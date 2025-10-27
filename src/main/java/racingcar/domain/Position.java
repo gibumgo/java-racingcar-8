@@ -10,6 +10,7 @@ public class Position {
     private final int position;
 
     private Position(int position) {
+        validateLength(position);
         this.position = position;
     }
 
@@ -19,6 +20,12 @@ public class Position {
 
     public static Position create(int position) {
         return new Position(position);
+    }
+
+    private void validateLength(int position) {
+        if (position < DEFAULT_POSITION) {
+            throw new IllegalArgumentException(RacingGameErrorMessages.POSITION_LENGTH_ERROR.getMessage());
+        }
     }
 
     @Override
