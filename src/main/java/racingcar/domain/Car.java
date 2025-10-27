@@ -21,8 +21,19 @@ public class Car {
         this.position = Position.create();
     }
 
+    public static Car from(String name, int position) {
+        return new Car(name, position);
+    }
+
     public static Car from(String name) {
         return new Car(name);
+    }
+
+    public Car move(MovingStrategy movingStrategy) {
+        if (movingStrategy.isMoving()) {
+            return new Car(this.name, this.position.increase());
+        }
+        return this;
     }
 
     @Override
