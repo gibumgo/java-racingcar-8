@@ -13,10 +13,6 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars fromCars(List<Car> cars) {
-        return new Cars(cars);
-    }
-
     public static Cars from(List<String> cars) {
         return new Cars(createCars(cars));
     }
@@ -61,15 +57,13 @@ public class Cars {
         return new Cars(newCars);
     }
 
-    public Winners findWinner() {
+    public List<Car> findWinner() {
         return winners(maxPosition());
     }
 
-    private Winners winners(Position maxPosition) {
-        List<Car> winnerList = cars.stream()
-                .filter(car -> car.isWinner(maxPosition))
-                .toList();
-        return new Winners(winnerList);
+    private List<Car> winners(Position maxPosition) {
+        Winners winners = new Winners();
+        return winners.addWinners(this.cars,maxPosition);
     }
 
     private Position maxPosition() {

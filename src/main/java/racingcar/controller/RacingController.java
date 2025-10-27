@@ -1,9 +1,6 @@
 package racingcar.controller;
 
-import racingcar.domain.Cars;
-import racingcar.domain.RacingGame;
-import racingcar.domain.RandomMovingStrategy;
-import racingcar.domain.Winners;
+import racingcar.domain.*;
 import racingcar.dto.CarDto;
 import racingcar.mapper.CarMapper;
 import racingcar.view.InputView;
@@ -34,7 +31,7 @@ public class RacingController {
             List<CarDto> carDto = CarMapper.toDtoList(currentCars);
             outputView.printRacing(carDto);
         }
-        Winners winners = racingGame.winners();
+        List<Car> winners = racingGame.winners();
         List<CarDto> winnerDto = CarMapper.toDtoList(winners);
         outputView.printWinners(winnerDto);
     }

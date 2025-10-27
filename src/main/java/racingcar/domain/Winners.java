@@ -20,6 +20,19 @@ public class Winners {
         this.winners.add(winner);
     }
 
+    public List<Car> addWinners(List<Car> cars, Position maxPosition) {
+        for (Car car : cars) {
+            addWinner(maxPosition, car);
+        }
+        return this.winners;
+    }
+
+    private void addWinner(Position maxPosition, Car car) {
+        if (car.isWinner(maxPosition)) {
+            this.winners.add(car);
+        }
+    }
+
     public List<Car> getCars() {
         return this.winners;
     }

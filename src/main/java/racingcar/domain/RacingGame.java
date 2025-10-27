@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 
+import java.util.List;
+
 public class RacingGame {
     private final Cars cars;
     private final TryNumber tryNumber;
@@ -29,7 +31,7 @@ public class RacingGame {
         return this.tryNumber.racing();
     }
 
-    public Winners winners() {
+    public List<Car> winners() {
         return cars.findWinner();
     }
 
