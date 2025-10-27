@@ -28,6 +28,10 @@ public class Position {
         }
     }
 
+    public Position increase() {
+        return new Position(this.position + MOVE_LENGTH);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
