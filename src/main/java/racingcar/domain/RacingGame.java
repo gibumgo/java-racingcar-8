@@ -28,4 +28,12 @@ public class RacingGame {
     public boolean isRacing() {
         return this.tryNumber.racing();
     }
+
+    public Winners winners() {
+        return cars.findWinner();
+    }
+
+    public Cars currentCars() {
+        return this.cars;
+    }
 }

@@ -24,6 +24,10 @@ public class CarName {
         }
     }
 
+    public String name() {
+        return name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
