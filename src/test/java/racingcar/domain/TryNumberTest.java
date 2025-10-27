@@ -18,4 +18,26 @@ class TryNumberTest {
     void invalid() {
         assertThatThrownBy(() -> TryNumber.create(-1)).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("경주 횟수 세기 기능 - 횟수가 1 감소")
+    void race_decreaseCount() {
+        TryNumber tryNumber = TryNumber.create(3);
+        TryNumber afterRace = tryNumber.race();
+        assertThat(afterRace).isEqualTo(TryNumber.create(2));
+    }
+
+    @Test
+    @DisplayName("경기 횟수가 MIN_COUNT 이상이면 true 반환")
+    void racing_true() {
+        TryNumber tryNumber = TryNumber.create(3);
+        assertThat(tryNumber.racing()).isTrue();
+    }
+
+    @Test
+    @DisplayName("횟수가 없어지면 false")
+    void racing_false() {
+        TryNumber tryNumber = TryNumber.create(0);
+        assertThat(tryNumber.racing()).isFalse();
+    }
 }
