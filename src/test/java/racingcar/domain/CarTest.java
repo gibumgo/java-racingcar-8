@@ -12,4 +12,19 @@ class CarTest {
         Car car = Car.from("pobi");
         assertThat(car).isEqualTo(Car.from("pobi"));
     }
+
+    @Test
+    @DisplayName("전진 기능 테스트")
+    void move() {
+        Car car = Car.from("pobi").move(() -> true);
+        assertThat(car).isEqualTo(Car.from("pobi", 1));
+
+    }
+
+    @Test
+    @DisplayName("정지 상황 테스트")
+    void stop() {
+        Car car = Car.from("pobi").move(() -> false);
+        assertThat(car).isEqualTo(Car.from("pobi", 0));
+    }
 }
