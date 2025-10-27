@@ -36,6 +36,10 @@ public class Car {
         return this;
     }
 
+    public Position max(Position otherPosition) {
+        return this.position.max(otherPosition);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;

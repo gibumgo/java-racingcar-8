@@ -28,4 +28,13 @@ class PositionTest {
         assertThat(Position.create(0).increase())
                 .isEqualTo(Position.create(1));
     }
+
+    @Test
+    @DisplayName("큰 위치 반환 기능 테스트")
+    void maxPosition() {
+        Position position = Position.create(5);
+        Position otherPosition = Position.create(3);
+
+        assertThat(position.max(otherPosition)).isEqualTo(position);
+    }
 }

@@ -61,6 +61,14 @@ public class Cars {
         return new Cars(newCars);
     }
 
+    private Position maxPosition() {
+        Position maxPosition = Position.create();
+        for (Car car : cars) {
+            maxPosition = car.max(maxPosition);
+        }
+        return maxPosition;
+    }
+
     public List<Car> cars() {
         return Collections.unmodifiableList(this.cars);
     }

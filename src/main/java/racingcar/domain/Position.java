@@ -32,6 +32,13 @@ public class Position {
         return new Position(this.position + MOVE_LENGTH);
     }
 
+    public Position max(Position otherPosition) {
+        if (this.position < otherPosition.position) {
+            return otherPosition;
+        }
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
