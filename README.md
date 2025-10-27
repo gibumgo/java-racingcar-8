@@ -26,8 +26,8 @@
 
 ###  자동차 목록 생성 및 관리
 - [x] 입력받은 자동차 이름들을 기준으로 경주에 참여할 자동차 목록을 생성한다.
-- [ ] 중복된 이름이 포함되어 있을 경우 예외를 발생시킨다. (`IllegalArgumentException`)
-- [ ] 이름이 비어 있을 경우 예외를 발생시킨다. (`IllegalArgumentException`)
+- [x] 중복된 이름이 포함되어 있을 경우 예외를 발생시킨다. (`IllegalArgumentException`)
+- [x] 이름이 비어 있을 경우 예외를 발생시킨다. (`IllegalArgumentException`)
 - [ ] 모든 자동차의 현재 상태(이름과 위치)를 관리한다.
 
 ### 자동차의 이동 규칙

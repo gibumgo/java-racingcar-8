@@ -22,7 +22,9 @@ public class Cars {
     }
 
     public static Cars from(String carNames) {
+        validateNotEmpty(carNames);
         List<String> carList = StringUtils.splitByComma(carNames);
+        validateNoDuplicate(carList);
         return from(carList);
     }
 
@@ -34,10 +36,32 @@ public class Cars {
         return cars;
     }
 
+    private static void validateNotEmpty(String name) {
+        if (StringUtils.isBlank(name)) {
+            throw new IllegalArgumentException(RacingGameErrorMessages.CAR_NAME_EMPTY_ERROR.getMessage());
+        }
+    }
+
+    private static void validateNoDuplicate(List<String> names) {
+        if (hasDuplicate(names)) {
+            throw new IllegalArgumentException(RacingGameErrorMessages.NAME_DUPLICATE_ERROR.getMessage());
+        }
+    }
+
+    private static boolean hasDuplicate(List<String> names) {
+        Set<String> uniqueNames = new HashSet<>(names);
+        return uniqueNames.size() != names.size();
+    }
+
+
     public Cars move(MovingStrategy movingStrategy) {
         List<Car> newCars = this.cars.stream()
                 .map(car -> car.move(movingStrategy))
                 .collect(Collectors.toList());
         return new Cars(newCars);
+    }
+
+    public List<Car> cars() {
+        return Collections.unmodifiableList(this.cars);
     }
 }
