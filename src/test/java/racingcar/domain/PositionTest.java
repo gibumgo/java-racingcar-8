@@ -21,4 +21,11 @@ class PositionTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(RacingGameErrorMessages.POSITION_LENGTH_ERROR.getMessage());
     }
+
+    @Test
+    @DisplayName("위치가 1 증가 기능 테스트")
+    void increasePosition() {
+        assertThat(Position.create(0).increase())
+                .isEqualTo(Position.create(1));
+    }
 }
