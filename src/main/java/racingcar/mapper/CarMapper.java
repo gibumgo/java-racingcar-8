@@ -26,8 +26,4 @@ public class CarMapper {
                 .map(CarMapper::toDto)
                 .collect(Collectors.toList());
     }
-
-    public static List<CarDto> toDtoList(Winners winners) {
-        return toDtoList(winners.getCars());
-    }
 }

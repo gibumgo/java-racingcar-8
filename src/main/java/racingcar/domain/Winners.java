@@ -12,14 +12,6 @@ public class Winners {
         this.winners = new ArrayList<>();
     }
 
-    public Winners(List<Car> winners) {
-        this.winners = winners;
-    }
-
-    public void addWinner(Car winner) {
-        this.winners.add(winner);
-    }
-
     public List<Car> addWinners(List<Car> cars, Position maxPosition) {
         for (Car car : cars) {
             addWinner(maxPosition, car);
