@@ -1,7 +1,8 @@
 package racingcar.exception;
 
 public enum RacingGameErrorMessages {
-    CAR_NAME_LENGTH_ERROR("자동차 이름은 1자 이상 5자 이하만 가능합니다.");
+    CAR_NAME_LENGTH_ERROR("자동차 이름은 1자 이상 5자 이하만 가능합니다."),
+    TRY_COUNT_ERROR("시도 횟수는 0 이상의 값이여야 합니다.");
 
     private final String message;
 

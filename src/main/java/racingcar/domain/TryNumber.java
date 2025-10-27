@@ -5,14 +5,23 @@ import racingcar.exception.RacingGameErrorMessages;
 import java.util.Objects;
 
 public class TryNumber {
+    private static final int MIN_COUNT = 0;
+    private static final int COUNT = 1;
     private final int tryNumber;
 
     private TryNumber(int tryNumber) {
+        validateCount(tryNumber);
         this.tryNumber = tryNumber;
     }
 
     public static TryNumber create(int tryNumber) {
         return new TryNumber(tryNumber);
+    }
+
+    private void validateCount(int tryNumber) {
+        if (tryNumber < MIN_COUNT) {
+            throw new IllegalArgumentException(RacingGameErrorMessages.TRY_COUNT_ERROR.getMessage());
+        }
     }
 
     @Override
@@ -26,4 +35,5 @@ public class TryNumber {
     public int hashCode() {
         return Objects.hashCode(tryNumber);
     }
+
 }
