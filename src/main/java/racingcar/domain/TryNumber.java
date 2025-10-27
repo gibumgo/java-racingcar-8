@@ -24,6 +24,14 @@ public class TryNumber {
         }
     }
 
+    public TryNumber race() {
+        return new TryNumber(tryNumber - COUNT);
+    }
+
+    public boolean racing() {
+        return this.tryNumber > MIN_COUNT;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;

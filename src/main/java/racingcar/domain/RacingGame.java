@@ -16,4 +16,13 @@ public class RacingGame {
     public static RacingGame of(int tryNumber) {
         return new RacingGame(tryNumber);
     }
+
+    public RacingGame next(MovingStrategy movingStrategy) {
+        TryNumber nextTryNumber = this.tryNumber.race();
+        return new RacingGame(nextTryNumber);
+    }
+
+    public boolean isRacing() {
+        return this.tryNumber.racing();
+    }
 }
